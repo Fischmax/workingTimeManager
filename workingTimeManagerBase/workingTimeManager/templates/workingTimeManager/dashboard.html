@@ -5,6 +5,40 @@
     <title>Dashboard</title>
 </head>
 <body>
+    <!-- Add work_time -->
+    Add working time:<br>
+    <form>
+        {% csrf_token %}
+        <input type="time" name="time_from"/>
+        <input type="time" name="time_to"/>
+        <button type="button" onclick="add_time()">Add</button>
+    </form>
 
+    <!-- Visual Stuff -->
+        <!-- Week/Month/Year -->
+
+    <!-- Change times -->
 </body>
+<script type="text/javascript">
+    function add_time(){
+        let formData = new FormData(document.querySelector('form'));
+        console.log(formData);
+        let req = new XMLHttpRequest();
+        try {
+            req.open("POST", 'add_time/', true);
+        } catch(err) {
+            alert("couldn't complete request. Is JS enabled for that domain?\\n\\n" + err.message);
+        }
+
+        req.send(formData);
+
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                alert(req.responseText);
+            } else {
+                alert("XHR error: " + req.status +" "+req.statusText);
+            }
+        }
+    }
+</script>
 </html>
