@@ -25,7 +25,8 @@ def add_time(request):
     else:
         time_to_add.balance = (time_to.tm_hour*60 - time_from.tm_hour*60) + (time_to.tm_min - time_from.tm_min)
         time_to_add.minutes_break = 45
-        time_to_add.balance -= time_to_add.minutes_break
+        time_to_add.minutes_total = time_to_add.balance + time_to_add.minutes_break
+        time_to_add.balance = time_to_add.balance - (time_to_add.minutes_break + 8*60)
         # TODO: variable, automatic
         # print(time_to_add.balance)
         time_to_add.save()
