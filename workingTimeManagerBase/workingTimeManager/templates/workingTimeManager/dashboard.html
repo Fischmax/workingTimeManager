@@ -9,8 +9,11 @@
     Add working time:<br>
     <form>
         {% csrf_token %}
+        <!-- Date -->
         <input type="time" name="time_from"/>
-        <input type="time" name="time_to"/>
+        <input type="time" name="time_to"/><br>
+        <input type="number" min="0" name="minutes_break" value="45"/>
+        <br>
         <button type="button" onclick="add_time()">Add</button>
     </form>
 
