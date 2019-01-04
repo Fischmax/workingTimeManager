@@ -21,15 +21,19 @@
         <!-- Week/Month/Year -->
 
     <!-- Change times -->
-    {% for time in working_times %}
+    {% if working_times %}
         <u>Last work times</u>:<br>
-        <p>
-            {{ time.date|date:"d.m.Y" }}
-            {{ time.time_from|date:"H:i" }} - {{ time.time_to|date:"H:i" }}<br>
-            Break: {{ time.minutes_break }}m<br>
-            Balance: {{ time.balance }}
-        </p>
-    {% endfor %}
+        <select size="5" onchange="last_time_click(this)">
+            {% for time in working_times %}
+                <option id="{{ time.id }}">
+                    {{ time.date|date:"d.m.Y" }}
+                    {{ time.time_from|date:"H:i" }} - {{ time.time_to|date:"H:i" }}
+                    Break: {{ time.minutes_break }}m
+                    Balance: {{ time.balance }}m
+                </option>
+            {% endfor %}
+        </select>
+    {% endif %}
 </body>
 <script type="text/javascript">
     function add_time(){
@@ -51,6 +55,11 @@
                 alert("XHR error: " + req.status +" "+req.statusText);
             }
         }
+    }
+
+    // Last time select events
+    function last_time_click(something){
+        console.log(something[something.selectedIndex].id);
     }
 </script>
 </html>
