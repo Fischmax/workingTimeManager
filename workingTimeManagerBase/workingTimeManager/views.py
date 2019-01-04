@@ -7,7 +7,13 @@ from .models import Worktime
 
 def dashboard(request):
 
-    return render(request, 'workingTimeManager/dashboard.html', {})
+    times = []
+
+    times = Worktime.objects.order_by('-date')
+
+    print(times)
+
+    return render(request, 'workingTimeManager/dashboard.html', {'working_times': times})
 
 
 def add_time(request):

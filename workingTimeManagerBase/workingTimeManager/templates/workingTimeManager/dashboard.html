@@ -21,6 +21,15 @@
         <!-- Week/Month/Year -->
 
     <!-- Change times -->
+    {% for time in working_times %}
+        <u>Last work times</u>:<br>
+        <p>
+            {{ time.date|date:"d.m.Y" }}
+            {{ time.time_from|date:"H:i" }} - {{ time.time_to|date:"H:i" }}<br>
+            Break: {{ time.minutes_break }}m<br>
+            Balance: {{ time.balance }}
+        </p>
+    {% endfor %}
 </body>
 <script type="text/javascript">
     function add_time(){
