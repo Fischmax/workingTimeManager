@@ -1,6 +1,7 @@
 language: python
 python:
     - "3.6"
+before_script: cd workingTimeManager
 
 # command to install dependencies
 install:
@@ -8,7 +9,7 @@ install:
 
 # command to run tests
 script:
-  - python workingTimeManager/manage.py test
+  - python manage.py test
 
 env:
   - DJANGO_VERSION=2.0.1
