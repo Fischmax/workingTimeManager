@@ -1,7 +1,7 @@
 language: python
 python:
     - "3.6"
-before_script: cd workingTimeManager
+before_script: cd workingTimeManagerBase
 
 # command to install dependencies
 install:
