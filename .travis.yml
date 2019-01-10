@@ -22,7 +22,7 @@ script:
 
 after_script:
   - codeclimate-test-reporter --file .coverage
-  - ./cc-test-reporter after-build -t coverage --debug --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build -t coverage.py --debug --exit-code $TRAVIS_TEST_RESULT
 
 env:
   - DJANGO_VERSION=2.0.8
