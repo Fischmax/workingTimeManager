@@ -21,7 +21,7 @@ script:
   - coverage report -m
 
 after_script:
-  - ./cc-test-reporter after-build -t coverage.py --debug --exit-code .coverage
+  - ./cc-test-reporter after-build -t coverage.py --debug --exit-code ./.coverage
 
 env:
   - DJANGO_VERSION=2.0.8
