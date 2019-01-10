@@ -3,7 +3,7 @@ python:
     - "3.6"
 
 before_install:
-  - sudo mysql_upgrade -u --force root --password=travis -h 127.0.0.1
+  - sudo mysql_upgrade --force -u root --password=travis -h 127.0.0.1
   - sudo mysql -e "use mysql; CREATE USER 'worker'@'localhost' IDENTIFIED BY 'workerpassword';FLUSH PRIVILEGES;"
   - sudo service mysql restart
 
