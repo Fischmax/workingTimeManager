@@ -3,8 +3,8 @@ python:
     - "3.6"
 
 before_install:
-  - sudo mysql -e "use mysql; CREATE USER 'worker'@'localhost' IDENTIFIED BY 'workerpassword'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -u worker -pnew_password
+  - sudo mysql -e "use mysql; CREATE USER 'worker'@'localhost' IDENTIFIED BY 'workerpassword';FLUSH PRIVILEGES;"
+  - sudo mysql_upgrade -u worker -p workerpassword
   - sudo service mysql restart
 
 # command to install dependencies
