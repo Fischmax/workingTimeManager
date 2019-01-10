@@ -3,7 +3,6 @@ python:
     - "3.6"
 
 before_install:
-  - sudo mysql_upgrade --force -u root --password=travis -h 127.0.0.1
   - sudo mysql -e "use mysql; CREATE USER 'worker'@'localhost' IDENTIFIED BY 'workerpassword';FLUSH PRIVILEGES;"
   - sudo service mysql restart
 
@@ -21,10 +20,5 @@ script:
 env:
   - DJANGO_VERSION=2.0.8
 
-addons:
-  apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
-      - mysql-client
+services:
+  - mysql
