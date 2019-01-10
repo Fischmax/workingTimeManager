@@ -3,8 +3,8 @@ python:
     - "3.6"
 
 before_install:
+  - sudo mysql_upgrade --force -uroot -p travis
   - sudo mysql -e "use mysql; CREATE USER 'worker'@'localhost' IDENTIFIED BY 'workerpassword';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -u worker -p workerpassword
   - sudo service mysql restart
 
 # command to install dependencies
