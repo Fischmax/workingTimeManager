@@ -12,7 +12,9 @@ install:
 
 before_script:
   - cd workingTimeManagerBase
-
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 # command to run tests
 script:
   - coverage run manage.py test
@@ -20,6 +22,7 @@ script:
 
 after_script:
   - codeclimate-test-reporter --file .coverage
+  - ./cc-test-reporter after-build -t coverage --debug --exit-code $TRAVIS_TEST_RESULT
 
 env:
   - DJANGO_VERSION=2.0.8
