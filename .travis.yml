@@ -18,10 +18,9 @@ before_script:
 # command to run tests
 script:
   - coverage run manage.py test
-  - coverage report -m
+  - coverage xml
 
 after_script:
-  - ./cc-test-reporter --file .coverage
   - ./cc-test-reporter after-build -t coverage.py --debug --exit-code $TRAVIS_TEST_RESULT
 
 env:
