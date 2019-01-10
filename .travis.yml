@@ -15,10 +15,7 @@ before_script:
 
 # command to run tests
 script:
-  - python manage.py test
-  - coverage run
-  - coverage report -m
-  - coverage html
+  - coverage run manage.py test
 
 after_script:
   - codeclimate-test-reporter --file .coverage
