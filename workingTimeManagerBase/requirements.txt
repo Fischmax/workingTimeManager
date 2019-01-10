@@ -3,3 +3,4 @@ Django==2.0.8
 django-coverage-plugin==1.6.0
 mysqlclient==1.3.12
 virtualenv==16.0.0
+codeclimate-test-reporter
