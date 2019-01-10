@@ -3,7 +3,7 @@ python:
     - "3.6"
 
 before_install:
-  - sudo mysql -e "use mysql; CREATE DATABASE workingtimedb; CREATE USER 'worker'@'localhost' IDENTIFIED BY 'workerpassword'; GRANT ALL PRIVILEGES ON workingtimedb.* TO 'worker'@'localhost';FLUSH PRIVILEGES;"
+  - sudo mysql -e "use mysql; CREATE USER 'worker'@'localhost' IDENTIFIED BY 'workerpassword'; ALTER USER worker CREATEDB; GRANT ALL PRIVILEGES ON workingtimedb.* TO 'worker'@'localhost';FLUSH PRIVILEGES;"
   - sudo service mysql restart
 
 # command to install dependencies
